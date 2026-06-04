@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Wrapped 2025 — Ms. Joie Ann Mac</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #1DB954;
+  --dark: #121212;
+  --card: #181818;
+  --accent: #ff6b6b;
+  --yellow: #FFD700;
+  --purple: #9b59b6;
+  --pink: #ff69b4;
+  --cyan: #00e5ff;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  background: #000;
+  font-family: 'Playfair Display', Georgia, serif;
+  overflow: hidden;
+}
+
+/* ── STAR FIELD ── */
+#stars {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.star {
+  position: absolute; border-radius: 50%; background: #fff;
+  animation: twinkle var(--d, 2s) ease-in-out infinite alternate;
+}
+@keyframes twinkle { from { opacity: 0.1; } to { opacity: 0.9; } }
+
+/* ── SLIDES ── */
+#deck {
+  position: relative; width: 100vw; height: 100vh; z-index: 1;
+}
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 2.5rem 2rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateX(60px);
+  text-align: center;
+}
+.slide.active {
+  opacity: 1; pointer-events: all; transform: translateX(0);
+}
+.slide.exit {
+  opacity: 0; transform: translateX(-60px);
+}
+
+/* ── SLIDE BACKGROUNDS ── */
+.s0 { background: radial-gradient(ellipse at 60% 40%, #1a0a2e 0%, #0d0d0d 70%); }
+.s1 { background: radial-gradient(ellipse at 30% 60%, #0a2a1a 0%, #0d0d0d 70%); }
+.s2 { background: radial-gradient(ellipse at 70% 30%, #1a0a1a 0%, #0d0d0d 70%); }
+.s3 { background: radial-gradient(ellipse at 40% 70%, #0a1a2a 0%, #0d0d0d 70%); }
+.s4 { background: radial-gradient(ellipse at 50% 50%, #1a1200 0%, #0d0d0d 70%); }
+.s5 { background: radial-gradient(ellipse at 60% 40%, #1a0010 0%, #0d0d0d 70%); }
+.s6 { background: linear-gradient(160deg, #0a0a0a 0%, #0f1a0f 100%); }
+
+/* ── TYPOGRAPHY ── */
+.big-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(14px, 3vw, 18px);
+  letter-spacing: 5px;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  opacity: 0.9;
+}
+.hero-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 18vw, 160px);
+  line-height: 0.9;
+  color: #fff;
+  text-shadow: 4px 4px 0 var(--accent);
+}
+.hero-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 10vw, 90px);
+  line-height: 0.95;
+  color: #fff;
+  letter-spacing: 2px;
+}
+.sub-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(14px, 2.5vw, 18px);
+  color: rgba(255,255,255,0.6);
+  margin-top: 1rem;
+  font-style: italic;
+  max-width: 420px;
+  line-height: 1.6;
+}
+.accent-text {
+  color: var(--green);
+  font-style: normal;
+}
+.yellow { color: var(--yellow); }
+.pink { color: var(--pink); }
+.cyan { color: var(--cyan); }
+
+/* ── INTENTIONALLY BAD DESIGN ELEMENTS ── */
+.comic-box {
+  font-family: 'Comic Neue', cursive;
+  background: var(--yellow);
+  color: #000;
+  border: 4px dashed #ff0000;
+  padding: 0.8rem 1.4rem;
+  transform: rotate(-3deg);
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 1.2rem;
+  display: inline-block;
+  position: relative;
+}
+.comic-box::after {
+  content: '★';
+  position: absolute;
+  top: -14px; right: -14px;
+  font-size: 20px;
+  color: red;
+  animation: spin 3s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.comic-box2 {
+  font-family: 'Comic Neue', cursive;
+  background: hotpink;
+  color: #fff;
+  border: 3px solid lime;
+  border-radius: 50px 0 50px 0;
+  padding: 0.6rem 1.2rem;
+  font-size: 13px;
+  font-weight: 700;
+  transform: rotate(2deg);
+  margin-top: 0.8rem;
+  display: inline-block;
+}
+
+.blink {
+  animation: blink-anim 0.9s step-end infinite;
+}
+@keyframes blink-anim { 50% { opacity: 0; } }
+
+.marquee-wrap { width: 100%; overflow: hidden; margin: 1rem 0; }
+.marquee-inner {
+  display: inline-block;
+  font-family: 'Comic Neue', cursive;
+  font-size: 13px;
+  color: lime;
+  white-space: nowrap;
+  animation: scroll-left 7s linear infinite;
+}
+@keyframes scroll-left { from { transform: translateX(50vw); } to { transform: translateX(-100%); } }
+
+/* ── PROGRESS BAR ── */
+#progress-bar {
+  position: fixed; bottom: 0; left: 0; height: 3px;
+  background: var(--green);
+  transition: width 0.5s ease;
+  z-index: 100;
+}
+
+/* ── DOTS ── */
+#dots {
+  position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 7px; z-index: 100;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transition: background 0.3s, transform 0.3s;
+}
+.dot.on { background: var(--green); transform: scale(1.4); }
+
+/* ── NAV BUTTON ── */
+#nav-btn {
+  position: fixed; bottom: 44px; right: 28px;
+  background: var(--green); color: #000;
+  border: none; border-radius: 50px;
+  padding: 14px 28px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px; letter-spacing: 2px;
+  cursor: pointer; z-index: 100;
+  transition: transform 0.15s, background 0.2s;
+  box-shadow: 0 4px 20px rgba(29,185,84,0.4);
+}
+#nav-btn:hover { transform: scale(1.06); background: #1ed760; }
+#nav-btn:active { transform: scale(0.97); }
+
+/* ── SLIDE 0: INTRO ── */
+.title-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 13vw, 110px);
+  line-height: 0.9;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, #fff 30%, var(--green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.teacher-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 4vw, 32px);
+  color: var(--green);
+  font-style: italic;
+  margin-top: 0.5rem;
+  letter-spacing: 1px;
+}
+.from-badge {
+  margin-top: 2rem;
+  font-family: 'Comic Neue', cursive;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+}
+.from-badge span {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ── SLIDE 6: LETTER ── */
+.letter-card {
+  background: #fdf6e3;
+  color: #2c2c2c;
+  border-radius: 4px;
+  padding: 2rem 2.2rem;
+  max-width: 580px;
+  width: 100%;
+  text-align: left;
+  font-family: Georgia, serif;
+  font-size: 13.5px;
+  line-height: 1.8;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  max-height: 70vh;
+  overflow-y: auto;
+  position: relative;
+}
+.letter-card::-webkit-scrollbar { width: 4px; }
+.letter-card::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+.letter-salutation {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+.letter-ps {
+  margin-top: 1.2rem;
+  font-size: 12.5px;
+  color: #555;
+  font-style: italic;
+  border-top: 1px solid #ddd;
+  padding-top: 0.8rem;
+}
+.letter-sig {
+  margin-top: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: #333;
+}
+.paper-tape {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 24px;
+  background: rgba(255,255,100,0.7);
+  border: 1px solid rgba(200,200,0,0.5);
+}
+
+/* ── BOUNCE ── */
+@keyframes bounce-in {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.bounce-in { animation: bounce-in 0.6s cubic-bezier(.22,1,.36,1) both; }
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+
+/* ── STAT ROW ── */
+.stat-row {
+  display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; justify-content: center;
+}
+.stat-box {
+  background: rgba(255,255,255,0.06);
+  border: 0.5px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 1rem 1.4rem;
+  min-width: 110px;
+}
+.stat-box .n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  color: var(--green);
+  line-height: 1;
+}
+.stat-box .l {
+  font-family: 'Comic Neue', cursive;
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 4px;
+}
+
+/* ── AWARD RIBBON ── */
+.ribbon {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, #b8860b, #FFD700, #b8860b);
+  color: #000;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px; letter-spacing: 2px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  margin-top: 1.2rem;
+  box-shadow: 0 2px 10px rgba(255,215,0,0.4);
+}
+
+/* ── CONFETTI (last slide) ── */
+.confetti-piece {
+  position: absolute;
+  width: 8px; height: 8px;
+  opacity: 0;
+  animation: fall 3s ease-in forwards;
+}
+@keyframes fall {
+  0% { opacity: 1; transform: translateY(-20px) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100px) rotate(720deg); }
+}
+</style>
+</head>
+<body>
+
+<div id="stars"></div>
+
+<div id="deck">
+
+  <!-- SLIDE 0: INTRO -->
+  <div class="slide s0 active" id="s0">
+    <div class="big-label bounce-in">🎓 block d presents</div>
+    <div class="title-logo bounce-in delay-1">Teacher<br>Wrapped</div>
+    <div class="teacher-name bounce-in delay-2">Ms. Joie Ann Mac</div>
+    <div class="sub-text bounce-in delay-3">A semester in review — <span class="accent-text">HCI Class D</span><br>because you deserved a whole presentation</div>
+    <div class="from-badge bounce-in delay-3">made with ♥ by <span>Sean S. Salapantan</span> & Block D</div>
+    <div class="marquee-wrap">
+      <span class="marquee-inner">★ WARNING: contains intentional bad design ★ you literally taught us how ★ so this is YOUR fault ★ (thank you) ★</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 1: HOURS TAUGHT -->
+  <div class="slide s1" id="s1">
+    <div class="big-label">this semester, you spent</div>
+    <div class="hero-num yellow">∞</div>
+    <div class="hero-text" style="font-size:clamp(28px,6vw,52px); margin-top:0.5rem">hours caring about<br>students who fell asleep</div>
+    <div class="sub-text">...and still showed up with energy every single class. <span class="accent-text">That's dedication.</span></div>
+    <div class="comic-box">estimated patience level: INFINITE 😭</div>
+  </div>
+
+  <!-- SLIDE 2: TOP MOMENT -->
+  <div class="slide s2" id="s2">
+    <div class="big-label">your #1 moment this year</div>
+    <div class="hero-text pink" style="line-height:1.1">making bad design<br><span style="color:#fff">feel like</span> art</div>
+    <div class="sub-text" style="margin-top:1.2rem">When you let us experience <span class="accent-text">intentional bad design</span> firsthand — and then made us <em>recreate it ourselves</em> — something clicked. Learning was never more fun.</div>
+    <div class="comic-box2">✨ we were literally programming cursed UIs ✨</div>
+    <div class="ribbon">🏆 most memorable lab activity award</div>
+  </div>
+
+  <!-- SLIDE 3: LAB STATS -->
+  <div class="slide s3" id="s3">
+    <div class="big-label">the numbers don't lie</div>
+    <div class="hero-text cyan">Lab<br>Activities</div>
+    <div class="sub-text">Every single one: <span class="accent-text">interactive, engaging, never boring.</span><br>You turned theory into experience.</div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="n">100%</div>
+        <div class="l">not boring</div>
+      </div>
+      <div class="stat-box">
+        <div class="n">∞</div>
+        <div class="l">things learned</div>
+      </div>
+      <div class="stat-box">
+        <div class="n">0</div>
+        <div class="l">dull moments</div>
+      </div>
+    </div>
+    <div class="comic-box" style="margin-top:1.4rem;transform:rotate(1.5deg)">
+      <span class="blink">★ NEW HIGH SCORE ★</span> most fun class of the sem
+    </div>
+  </div>
+
+  <!-- SLIDE 4: TEACHER STATS -->
+  <div class="slide s4" id="s4">
+    <div class="big-label">your final stats</div>
+    <div class="hero-text yellow" style="font-size:clamp(30px,7vw,64px); line-height:1.1">
+      Patience: S+<br>
+      <span style="color:var(--pink)">Energy: S+</span><br>
+      <span style="color:var(--cyan)">Heart: S+</span>
+    </div>
+    <div class="sub-text" style="margin-top:1.2rem">You genuinely care about your students — and that doesn't go unnoticed. Teaching is hard work, and you do it with <span class="accent-text">so much heart.</span></div>
+    <div class="comic-box2" style="font-size:14px">
+      Block D rates Ms. Joie: ⭐⭐⭐⭐⭐ / 5 stars
+    </div>
+  </div>
+
+  <!-- SLIDE 5: ACHIEVEMENT UNLOCK -->
+  <div class="slide s5" id="s5">
+    <div class="big-label">achievement unlocked</div>
+    <div style="font-size:72px; margin: 0.5rem 0; animation: spin 4s linear infinite; display:inline-block">🏅</div>
+    <div class="hero-text" style="font-size:clamp(32px,7vw,60px); line-height:1.1">
+      Best Teacher<br>of the Semester
+    </div>
+    <div class="sub-text">Awarded by Block D, unanimously, without a vote,<br>because there was <span class="accent-text">no competition.</span></div>
+    <div class="ribbon" style="margin-top:1.5rem">🎓 CSCC Human Computer Interaction — Class D — 2025</div>
+  </div>
+
+  <!-- SLIDE 6: THE LETTER -->
+  <div class="slide s6" id="s6">
+    <div class="big-label" style="margin-bottom:1rem">a letter from your students</div>
+    <div class="letter-card" id="letter">
+      <div class="paper-tape"></div>
+      <div class="letter-salutation">Dear Ms. Joie Ann Mac,</div>
+      <p>I wanted to take a moment to sincerely thank you for everything you've done this semester in <strong>CSCC Human Computer Interaction Class D</strong>. Your dedication and the way you make your lessons engaging has made a real difference — not just for my grades, but in how I think and approach challenges.</p>
+      <br>
+      <p>A favorite moment I remembered was when we got to experience intentional bad design on our computers — and being able to recreate it by programming it myself really made it fun to learn and enjoy. I love all the laboratory activities the class had, as they were very interactive and never boring!! It's one of those things that will stick with me for a long time.</p>
+      <br>
+      <p>You genuinely care about your students, and that doesn't go unnoticed. Teaching is hard work, and you do it with so much heart. I'm really grateful to have had you as my teacher.</p>
+      <br>
+      <p>Thank you again for all your patience, guidance, and support throughout the course.</p>
+      <div class="letter-sig">
+        With gratitude,<br>
+        <strong>Sean S. Salapantan and Block D</strong><br>
+        <span style="font-size:11px; color:#888">(and The F Students 🙏)</span>
+      </div>
+      <div class="letter-ps">
+        <strong>P.S.</strong> — I've been putting in a lot of effort this term, and I'm hoping my final project reflects that. If there's any chance a point could be reconsidered on my final project to finally hit the A instead of an A-, I would be beyond grateful — but either way, I'm truly thankful for everything. 🙏
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- UI CHROME -->
+<div id="progress-bar"></div>
+<div id="dots"></div>
+<button id="nav-btn" onclick="advance()">NEXT →</button>
+
+<script>
+const TOTAL = 7;
+let cur = 0;
+
+function makeStars() {
+  const c = document.getElementById('stars');
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const sz = Math.random() * 3 + 1;
+    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${1+Math.random()*3}s;animation-delay:${Math.random()*3}s`;
+    c.appendChild(s);
+  }
+}
+
+function makeDots() {
+  const d = document.getElementById('dots');
+  d.innerHTML = '';
+  for (let i = 0; i < TOTAL; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === cur ? ' on' : '');
+    d.appendChild(dot);
+  }
+}
+
+function updateProgress() {
+  document.getElementById('progress-bar').style.width = ((cur + 1) / TOTAL * 100) + '%';
+}
+
+function advance() {
+  if (cur >= TOTAL - 1) return;
+  const old = document.getElementById('s' + cur);
+  old.classList.add('exit');
+  old.classList.remove('active');
+  setTimeout(() => old.classList.remove('exit'), 500);
+  cur++;
+  const next = document.getElementById('s' + cur);
+  next.classList.add('active');
+  makeDots();
+  updateProgress();
+  if (cur === TOTAL - 1) {
+    document.getElementById('nav-btn').textContent = '🎉 THE END';
+    document.getElementById('nav-btn').disabled = true;
+    spawnConfetti();
+  }
+}
+
+function spawnConfetti() {
+  const colors = ['#1DB954','#FFD700','#ff6b6b','#00e5ff','#ff69b4','#fff'];
+  const letter = document.getElementById('letter');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-piece';
+    p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*40}%;background:${colors[i%colors.length]};border-radius:${Math.random()>0.5?'50%':'2px'};animation-delay:${Math.random()*2}s;animation-duration:${2+Math.random()*2}s`;
+    document.getElementById('s6').appendChild(p);
+  }
+}
+
+makeStars();
+makeDots();
+updateProgress();
+</script>
+</body>
+</html>
